@@ -1,0 +1,24 @@
+server:
+  port: 8000
+
+spring:
+  datasource:
+    url: jdbc:mysql://47.52.134.185:3306/weapp?allowMultiQueries=false&useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+mybatis-plus:
+  global-config:
+    banner: false
+  mapper-locations: classpath*:/mapper/*.xml
+  configuration:
+    # 打印sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: false
+  supportMethodsArguments: true
+  params: count
