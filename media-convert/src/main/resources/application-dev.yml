@@ -7,12 +7,23 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 5120MB
+      max-request-size: 5120MB
+      enabled: true
 
 
 mybatis-plus:
   global-config:
     banner: false
-  mapper-locations: classpath*:/mapper/*.xml
+  #mapper-locations: classpath*:com/vianstats/edu/tutor/web/mapper/xml/*.xml
+  #mapper-locations: classpath*:com/vianstats/edu/home/mapper/xml/*.xml
+  mapper-locations: classpath*:com/vianstats/media/**/mapper/xml/*.xml
+  #mapper-locations: classpath*:**/*.xml
+  #mapper-locations: classpath*:com/vianstats/edu/tutor/web/mapper/xml/*.xml,classpath*:com/vianstats/edu/home/mapper/xml/*.xml,com/vianstats/edu/common/mapper/xml/*.xml,com/vianstats/edu/home/mapper/xml/*.xml,com/vianstats/edu/bbs/mapper/xml/*.xml
+  #mapper-locations: classpath*:com\vianstats\edu\**\mapper\xml\*.xml
+  #type-aliases-package: com.vianstats.edu.tutor.mapper
   configuration:
     # 打印sql
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
@@ -22,3 +33,42 @@ pagehelper:
   reasonable: false
   supportMethodsArguments: true
   params: count
+
+Minio:
+  endPoint: 192.168.0.104
+  port: 9000
+  accessKey: VIANGZ2020
+  secretKey: VIANGZ2020
+
+  #文件服务器存储路径
+  uploadUrl:
+    BucketName: apptest
+    userAvatarUrl: user/avatar/
+
+    #系统用
+    System:
+      temp: system/temp/
+
+    #用户模块
+    User:
+      userAvatarUrl: user/avatar/test/
+
+    #首页探索模块
+    Index:
+      exploreBanner: index/explore/banner/
+
+    #Tutor模块
+    Tutor:
+      courseAvatar: user/avatar/
+
+    #Seminar模块
+    Seminar:
+      seminarImg: seminar/img/
+      seminarVoice: seminar/voice/
+      seminarFile: seminar/file/
+      seminarText: seminar/text/
+      seminarMsg: seminar/msg/
+
+    #论坛模块
+    BBS:
+      questionAvatar: user/avatar/

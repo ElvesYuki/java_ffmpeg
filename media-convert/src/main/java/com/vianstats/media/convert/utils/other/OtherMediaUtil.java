@@ -68,7 +68,7 @@ public class OtherMediaUtil {
      * FFmpeg程序执行路径
      * 当前系统安装好ffmpeg程序并配置好相应的环境变量后，值为ffmpeg可执行程序文件在实际系统中的绝对路径
      */
-	private static String FFMPEG_PATH = "C:\\MyProgram\\ztestProgram\\ffmpeg-4.3-win64-static\\bin\\ffmpeg.exe" +
+	private static String FFMPEG_PATH = "ffmpeg" +
             "" +
             ""; // /usr/bin/ffmpeg
 
@@ -800,10 +800,10 @@ public class OtherMediaUtil {
 		if (inputFile == null || !inputFile.exists()) {
 			throw new RuntimeException("源媒体文件不存在，源媒体文件路径： ");
 		}
-		List<String> commond = new ArrayList<String>();
-		commond.add("-i");
-		commond.add(inputFile.getAbsolutePath());
-		String executeResult = OtherMediaUtil.executeCommand(commond);
+		List<String> command = new ArrayList<String>();
+        command.add("-i");
+        command.add(inputFile.getAbsolutePath());
+		String executeResult = OtherMediaUtil.executeCommand(command);
 		return executeResult;
 	}
 
